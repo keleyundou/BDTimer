@@ -4,7 +4,7 @@ getCode Timer
 # Use
 
 create timer object
-```oc
+```
 - (void)viewDidLoad {
     [super viewDidLoad];
     timerHandler = [BDTimerHandler timerHandler];
@@ -12,7 +12,7 @@ create timer object
 }
 ```
 
-```oc
+```
 - (IBAction)getCodeClicked:(id)sender {
     if (![timerHandler getCurrentState]) {
         [timerHandler startTimer];
