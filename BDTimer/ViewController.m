@@ -34,14 +34,17 @@
     [timerHandler cancelTimer];
 }
 
-- (IBAction)getCodeClicked:(id)sender {
+- (IBAction)getCodeClicked:(UIButton *)sender {
     if (![timerHandler getCurrentState]) {
         [timerHandler startTimer];
     }
     timerHandler.getTimeInterval = ^(NSString *timeInterval, BOOL state) {
         NSLog(@"____%@____state: [%d]",timeInterval, state);
-        [(UIButton *)sender setEnabled:!state];
-        [(UIButton *)sender setTitle:timeInterval forState:UIControlStateNormal];
+        [sender setEnabled:!state];
+        //解决闪烁问题：
+        sender.titleLabel.text = timeInterval;
+        
+        [sender setTitle:timeInterval forState:UIControlStateNormal];
     };
 }
 
